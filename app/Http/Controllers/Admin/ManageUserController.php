@@ -96,7 +96,7 @@ class ManageUserController extends Controller
 public function userProfile($id)
 {
     $user = DB::table('users')->where('id', $id)->first();
-    $balance = DB::table('balances')->where('user_id', $id)->first();
+   
     // $withdrawal_total = Withdrawal::where('user_id', $user->id)
     // ->where('status', 1)
     // ->sum('amount');
@@ -106,7 +106,7 @@ public function userProfile($id)
 
     $data = [
         'userProfile' => $user,
-        'balance' => $balance,
+      
     ];
     return view('admin.user', $data);
 }
