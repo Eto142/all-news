@@ -77,13 +77,13 @@
             display: block;
             text-align: center;
             color: #1877f2;
-            text-decoration: none;
             margin-bottom: 18px;
             font-size: 16px;
             font-weight: 500;
+            text-decoration: none !important;
         }
         .fb-link:hover {
-            text-decoration: underline;
+            text-decoration: none !important;
         }
         .fb-divider {
             border-top: 1px solid #e4e6eb;
