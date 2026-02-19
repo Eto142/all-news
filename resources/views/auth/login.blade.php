@@ -9,43 +9,64 @@
         body {
             background: #f0f2f5;
             font-family: 'Roboto', Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .fb-container {
-            max-width: 400px;
-            margin: 60px auto;
+            width: 100%;
+            max-width: 420px;
+            margin: 0 auto;
             background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            padding: 32px 24px 24px 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(24,119,242,0.10);
+            padding: 40px 28px 28px 28px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .fb-logo {
             color: #1877f2;
-            font-size: 48px;
+            font-size: 52px;
             font-weight: bold;
             text-align: center;
-            margin-bottom: 24px;
+            margin-bottom: 32px;
             letter-spacing: -2px;
+        }
+        .fb-form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
         }
         .fb-form input[type="email"],
         .fb-form input[type="password"] {
             width: 100%;
-            padding: 12px;
-            margin-bottom: 16px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 16px;
+            padding: 14px;
+            border: 1px solid #e4e6eb;
+            border-radius: 8px;
+            font-size: 17px;
+            background: #f7f8fa;
+            transition: border-color 0.2s;
+        }
+        .fb-form input[type="email"]:focus,
+        .fb-form input[type="password"]:focus {
+            border-color: #1877f2;
+            outline: none;
         }
         .fb-form button {
             width: 100%;
             background: #1877f2;
             color: #fff;
             border: none;
-            padding: 12px;
-            border-radius: 6px;
-            font-size: 18px;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 19px;
             font-weight: bold;
             cursor: pointer;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
+            transition: background 0.2s;
         }
         .fb-form button:hover {
             background: #166fe5;
@@ -55,29 +76,53 @@
             text-align: center;
             color: #1877f2;
             text-decoration: none;
-            margin-bottom: 16px;
-            font-size: 15px;
+            margin-bottom: 18px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .fb-link:hover {
+            text-decoration: underline;
         }
         .fb-divider {
-            border-top: 1px solid #ddd;
-            margin: 20px 0;
+            border-top: 1px solid #e4e6eb;
+            margin: 24px 0;
         }
         .fb-create {
             display: block;
-            width: 60%;
-            margin: 0 auto;
+            width: 100%;
             background: #42b72a;
             color: #fff;
             border: none;
-            padding: 10px;
-            border-radius: 6px;
-            font-size: 16px;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 17px;
             font-weight: bold;
             text-align: center;
             cursor: pointer;
+            margin-top: 8px;
+            transition: background 0.2s;
         }
         .fb-create:hover {
             background: #36a420;
+        }
+        @media (max-width: 600px) {
+            .fb-container {
+                padding: 18px 6px 18px 6px;
+                max-width: 98vw;
+            }
+            .fb-logo {
+                font-size: 36px;
+                margin-bottom: 18px;
+            }
+            .fb-form input[type="email"],
+            .fb-form input[type="password"] {
+                font-size: 15px;
+                padding: 10px;
+            }
+            .fb-form button, .fb-create {
+                font-size: 15px;
+                padding: 10px;
+            }
         }
     </style>
 </head>
