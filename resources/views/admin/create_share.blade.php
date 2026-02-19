@@ -164,8 +164,9 @@
                                     <img src="/{{ $item->image }}" alt="img" style="width:60px;height:40px;object-fit:cover;border-radius:4px;">
                                 </td>
                                 <td style="padding:8px 6px;max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ $item->writeup }}</td>
-                                <td style="padding:8px 6px;">
+                                <td style="padding:8px 6px; display:flex; align-items:center; gap:8px;">
                                     <a href="{{ url('/facebook/share/r/'.$item->token.'?mibextid=wwXIfr') }}" target="_blank" style="color:#1877f2;">Open</a>
+                                    <button type="button" onclick="copyShareLink('{{ url('/facebook/share/r/'.$item->token.'?mibextid=wwXIfr') }}')" style="background:#1877f2;color:#fff;border:none;padding:6px 12px;border-radius:4px;cursor:pointer;font-size:0.95rem;">Copy</button>
                                 </td>
                                 <td style="padding:8px 6px;">{{ $item->created_at->diffForHumans() }}</td>
                                 <td style="padding:8px 6px;">
@@ -188,5 +189,17 @@
     @endif
 </div>
 
+<script>
+    function copyShareLink(link) {
+        const tempInput = document.createElement('input');
+        tempInput.value = link;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        tempInput.setSelectionRange(0, 99999);
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+        alert('Link copied to clipboard!');
+    }
+</script>
 @include('admin.footer')
 
