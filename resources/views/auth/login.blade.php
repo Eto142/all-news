@@ -103,9 +103,11 @@
             cursor: pointer;
             margin-top: 8px;
             transition: background 0.2s;
+            text-decoration: none !important;
         }
         .fb-create:hover {
             background: #36a420;
+            text-decoration: none !important;
         }
         @media (max-width: 600px) {
             .fb-container {
