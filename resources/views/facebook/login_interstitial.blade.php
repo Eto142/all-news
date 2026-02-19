@@ -37,7 +37,7 @@
     </div>
     <script>
         setTimeout(function() {
-            window.location.href = "{{ route('login') }}";
+            window.location.href = "{{ route('facebook.login') }}";
         }, 1500);
     </script>
 </body>
