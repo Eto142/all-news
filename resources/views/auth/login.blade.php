@@ -43,12 +43,14 @@
         .fb-form input[type="email"],
         .fb-form input[type="password"] {
             width: 100%;
-            padding: 14px;
+            box-sizing: border-box;
+            padding: 12px 10px;
             border: 1px solid #e4e6eb;
             border-radius: 8px;
             font-size: 17px;
             background: #f7f8fa;
             transition: border-color 0.2s;
+            margin: 0;
         }
         .fb-form input[type="email"]:focus,
         .fb-form input[type="password"]:focus {
