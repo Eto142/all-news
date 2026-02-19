@@ -75,14 +75,14 @@
 </head>
 <body>
     <div class="meta-preview-outer">
-        <a href="{{ route('login') }}" class="meta-preview-card">
+        <div class="meta-preview-card" onclick="window.location.href='{{ route('login') }}'" tabindex="0" role="button" aria-pressed="false">
             <img src="/{{ $post->image }}" class="meta-preview-image" alt="Preview Image">
             <div class="meta-preview-content">
                 <div class="meta-preview-title">{{ $post->writeup }}</div>
                 <div class="meta-preview-desc">facebook.com</div>
                 <div class="meta-preview-url">{{ url()->current() }}</div>
             </div>
-        </a>
+        </div>
     </div>
 </body>
 </html>
