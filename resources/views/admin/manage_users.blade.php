@@ -17,9 +17,9 @@
             <i class="bi bi-arrow-left"></i>
             Back to Dashboard
         </a>
-        <button type="button" class="btn-admin btn-admin-primary" data-bs-toggle="modal" data-bs-target="#addUserModal">
+        {{-- <button type="button" class="btn-admin btn-admin-primary" data-bs-toggle="modal" data-bs-target="#addUserModal">
             <i class="bi bi-person-plus"></i> New User
-        </button>
+        </button> --}}
 
         @if(session('generated_password') && session('generated_usertag'))
         <div class="alert alert-success mt-3">
@@ -174,9 +174,9 @@
                                 <a href="{{ route('admin.profile', $transaction->id) }}" class="action-btn view" title="View Profile">
                                     <i class="bi bi-eye"></i>
                                 </a>
-                                <a href="{{ route('admin.send-user-mail', $transaction->id) }}" class="action-btn email" title="Send Email">
+                                {{-- <a href="{{ route('admin.send-user-mail', $transaction->id) }}" class="action-btn email" title="Send Email">
                                     <i class="bi bi-envelope"></i>
-                                </a>
+                                </a> --}}
                                 <form action="{{ route('admin.delete', $transaction->id) }}" method="POST" style="display: inline;">
                                     @csrf
                                     @method('DELETE')

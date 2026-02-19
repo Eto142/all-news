@@ -7,7 +7,7 @@
     <meta name="description" content="Hollywood Vampires  Admin Dashboard" />
     <meta name="author" content="Hollywood Vampires " />
     <link rel="shortcut icon" href="{{asset('admin/assets/images/favicon.svg')}}" />
-    <title>Admin Dashboard - Hollywood Vampires </title>
+    <title>Admin Dashboard - Let's go </title>
 
     <!-- Google Fonts - Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -62,16 +62,16 @@
                 <div class="profile-dropdown" id="profileDropdown">
                     <div class="dropdown-header">
                         <div class="name">Administrator</div>
-                        <div class="email">admin@fastpaysaverbc.com</div>
+                        <div class="email">admin@mail.com</div>
                     </div>
                     <a href="{{ route('admin.change.password') }}" class="dropdown-item">
                         <i class="bi bi-key"></i>
                         <span>Change Password</span>
                     </a>
-                    <a href="https://fastpaysaverbc.com/" class="dropdown-item" target="_blank">
+                    {{-- <a href="https://fastpaysaverbc.com/" class="dropdown-item" target="_blank">
                         <i class="bi bi-globe"></i>
                         <span>Visit Site</span>
-                    </a>
+                    </a> --}}
                     <div class="dropdown-divider"></div>
                     <a href="#" class="dropdown-item logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <i class="bi bi-box-arrow-right"></i>

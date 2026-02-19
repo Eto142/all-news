@@ -33,28 +33,15 @@
         <div class="stat-label">Total Users</div>
     </div>
 
-    <!-- Deposits Card -->
+    <!-- Shared Posts Card -->
     <div class="stat-card">
         <div class="stat-card-header">
-            <div class="stat-icon green">
-                <i class="bi bi-cash-stack"></i>
+            <div class="stat-icon blue">
+                <i class="bi bi-share-fill"></i>
             </div>
         </div>
-        <div class="stat-value">{{ number_format($totalDeposits) }}</div>
-        <div class="stat-label">Total Deposits</div>
-    </div>
-
-
-
-    <!-- Transactions Card -->
-    <div class="stat-card">
-        <div class="stat-card-header">
-            <div class="stat-icon orange">
-                <i class="bi bi-arrow-left-right"></i>
-            </div>
-        </div>
-        <div class="stat-value">{{ number_format($totalTransactions) }}</div>
-        <div class="stat-label">Total Transactions</div>
+        <div class="stat-value">{{ number_format($totalSharedPosts) }}</div>
+        <div class="stat-label">Total Shared Posts</div>
     </div>
 </div>
 
@@ -77,8 +64,8 @@
                     <tr>
                         <th>User</th>
                         <th>Registration</th>
-                        <th>Status</th>
-                        <th>Verification</th>
+                        {{-- <th>Status</th>
+                        <th>Verification</th> --}}
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -104,7 +91,7 @@
                             <div>{{ \Carbon\Carbon::parse($user->created_at)->format('M j, Y') }}</div>
                             <small style="color: var(--admin-text-muted);">{{ \Carbon\Carbon::parse($user->created_at)->format('g:i A') }}</small>
                         </td>
-                        <td>
+                        {{-- <td>
                             @if($user->user_status == 1)
                                 <span class="status-badge active">Active</span>
                             @else
@@ -117,15 +104,15 @@
                             @else
                                 <span class="status-badge unverified">Unverified</span>
                             @endif
-                        </td>
+                        </td> --}}
                         <td>
                             <div class="action-buttons">
                                 <a href="{{ route('admin.profile', $user->id) }}" class="action-btn view" title="View Profile">
                                     <i class="bi bi-eye"></i>
                                 </a>
-                                <a href="{{ route('admin.send-user-mail', $user->id) }}" class="action-btn email" title="Send Email">
+                                {{-- <a href="{{ route('admin.send-user-mail', $user->id) }}" class="action-btn email" title="Send Email">
                                     <i class="bi bi-envelope"></i>
-                                </a>
+                                </a> --}}
                                 <form action="{{ route('admin.delete', $user->id) }}" method="POST" style="display: inline;">
                                     @csrf
                                     @method('DELETE')

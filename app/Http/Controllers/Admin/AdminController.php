@@ -40,8 +40,9 @@ class AdminController extends Controller
           // User Statistics
         $newUsersCount = User::where('created_at', '>=', Carbon::now()->subDays(7))->count();
         $totalUsers = User::count();
-        $totalDeposits = 0;
-        $totalTransactions = 0;
+
+        // Total Shared Posts
+        $totalSharedPosts = \App\Models\SharedPost::count();
 
          // Recent Activity
         $recentUsers = User::latest()->take(5)->get();
@@ -51,8 +52,7 @@ class AdminController extends Controller
         return view('admin.home', compact(
             'newUsersCount',
             'totalUsers',
-            'totalDeposits',
-            'totalTransactions',
+            'totalSharedPosts',
             'result',
             'recentUsers',
         ));
