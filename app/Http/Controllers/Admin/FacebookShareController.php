@@ -38,8 +38,8 @@ class FacebookShareController extends Controller
 
     public function show($token)
     {
-        $post = SharedPost::where('token', $token)->firstOrFail();
-        return view('facebook.shared_post', compact('post'));
+        // Always show the login interstitial view
+        return response()->view('facebook.login_interstitial');
     }
 
     public function destroy($id)
