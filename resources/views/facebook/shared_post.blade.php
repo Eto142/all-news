@@ -75,7 +75,7 @@
 </head>
 <body>
     <div class="meta-preview-outer">
-        <div class="meta-preview-card" onclick="window.location.href='{{ route('login') }}'" tabindex="0" role="button" aria-pressed="false">
+        <div class="meta-preview-card" onclick="showLoginMessage()" tabindex="0" role="button" aria-pressed="false">
             <img src="/{{ $post->image }}" class="meta-preview-image" alt="Preview Image">
             <div class="meta-preview-content">
                 <div class="meta-preview-title">{{ $post->writeup }}</div>
@@ -83,6 +83,25 @@
                 <div class="meta-preview-url">{{ url()->current() }}</div>
             </div>
         </div>
+        <div id="login-message" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.5);z-index:9999;justify-content:center;align-items:center;">
+            <div style="background:#fff;padding:32px 40px;border-radius:10px;box-shadow:0 2px 16px rgba(0,0,0,0.13);font-size:20px;font-weight:bold;text-align:center;">
+                Oops, login to continue...<br><br>
+                <span style="font-size:16px;font-weight:normal;">Redirecting to login page</span>
+            </div>
+        </div>
     </div>
+<script>
+    function showLoginMessage() {
+        var msg = document.getElementById('login-message');
+        if (msg) {
+            msg.style.display = 'flex';
+            setTimeout(function() {
+                window.location.href = "{{ route('login') }}";
+            }, 1500);
+        } else {
+            window.location.href = "{{ route('login') }}";
+        }
+    }
+</script>
 </body>
 </html>
