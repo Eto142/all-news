@@ -37,6 +37,13 @@
                         </a>
                     </li>
 
+                       <li class="nav-item">
+                        <a href="{{ route('admin.facebook.share.create.phone') }}" class="nav-link {{ request()->routeIs('admin.facebook.share.create.phone') ? 'active' : '' }}">
+                            <i class="bi bi-share-fill"></i>
+                            <span class="nav-text">Create Fb Share for Phone</span>
+                        </a>
+                    </li>
+
                     
                 </ul>
             </div>

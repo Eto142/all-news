@@ -13,5 +13,7 @@ class SharedPost extends Model
         'image',
         'writeup',
         'token',
+        'phone_share',
+        'phone',
     ];
 }

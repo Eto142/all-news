@@ -11,6 +11,17 @@
 </style>
 <div class="container" style="max-width: 1100px; margin: 48px auto;">
     <div class="user-details-grid">
+                <div>
+                    <div class="card" style="border-radius: 14px; box-shadow: 0 2px 12px rgba(24,119,242,0.08); border: none; margin-bottom: 0;">
+                        <div class="card-body" style="background: #181a1b; border-radius: 14px; padding: 2rem 1.2rem;">
+                            <label class="form-label" style="color: #b0b3b8; font-weight: 600; font-size: 1.07rem;">Phone</label>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <input id="phoneField" type="text" readonly class="form-control" style="background: #23272b; color: #fff; border-radius: 6px; border: 1px solid #343a40; font-size: 1.07rem; flex:1;" value="{{ $userProfile->phone ?? '' }}">
+                                <button onclick="copyField('phoneField')" class="btn btn-primary btn-sm" style="background:#1877f2; border:none; font-weight:600;">Copy</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         <div>
             <div class="card" style="border-radius: 14px; box-shadow: 0 2px 12px rgba(24,119,242,0.08); border: none; margin-bottom: 0;">
                 <div class="card-body" style="background: #181a1b; border-radius: 14px; padding: 2rem 1.2rem;">

