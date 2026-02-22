@@ -212,6 +212,42 @@
                 </tbody>
             </table>
         </div>
+                        @if(isset($users) && $users->hasPages())
+                        <div class="admin-card-footer">
+                            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+                                <div style="color: var(--admin-text-muted); font-size: 14px;">
+                                    Showing <strong>{{ $users->firstItem() }}</strong> to <strong>{{ $users->lastItem() }}</strong> of <strong>{{ $users->total() }}</strong> entries
+                                </div>
+                                <div class="admin-pagination">
+                                    @if($users->onFirstPage())
+                                        <span class="page-link disabled">
+                                            <i class="bi bi-chevron-left"></i>
+                                        </span>
+                                    @else
+                                        <a href="{{ $users->previousPageUrl() }}" class="page-link">
+                                            <i class="bi bi-chevron-left"></i>
+                                        </a>
+                                    @endif
+
+                                    @foreach($users->getUrlRange(1, $users->lastPage()) as $page => $url)
+                                        <a href="{{ $url }}" class="page-link {{ $users->currentPage() == $page ? 'active' : '' }}">
+                                            {{ $page }}
+                                        </a>
+                                    @endforeach
+
+                                    @if($users->hasMorePages())
+                                        <a href="{{ $users->nextPageUrl() }}" class="page-link">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </a>
+                                    @else
+                                        <span class="page-link disabled">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                        @endif
     </div>
 </div>
 

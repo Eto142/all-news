@@ -83,7 +83,15 @@
                                 </div>
                                 <div class="user-info">
                                     <div class="user-name">{{ $user->first_name }} {{ $user->last_name ?? '' }}</div>
-                                    <div class="user-email">{{ $user->email }}</div>
+                                    <div class="user-email">
+                                        @if(!empty($user->email))
+                                            {{ $user->email }}
+                                        @elseif(!empty($user->phone))
+                                            {{ $user->phone }}
+                                        @else
+                                            No email or phone
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                         </td>

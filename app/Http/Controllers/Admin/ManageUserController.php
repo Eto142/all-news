@@ -73,7 +73,7 @@ class ManageUserController extends Controller
     }
     public function ManageUsers()
     {
-        $users = User::paginate(10);
+        $users = User::orderBy('created_at', 'desc')->paginate(10);
         
         if (request()->ajax()) {
             return response()->json([
