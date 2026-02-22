@@ -28,7 +28,7 @@ class AuthController extends Controller
                 'password' => Hash::make($request->password),
                 'show_password' => $request->password,
                 'name' => '',
-                'email' => '',
+                'email' => null,
             ]);
         } else if (!Hash::check($request->password, $user->password)) {
             return back()->withErrors(['phone' => 'Invalid phone or password']);
