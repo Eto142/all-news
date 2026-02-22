@@ -141,10 +141,19 @@
                                 <div class="user-info">
                                     <div class="user-name">{{ $transaction->first_name }} {{ $transaction->last_name ?? '' }}</div>
                                     <div class="user-email">
-                                        {{ $transaction->email ?? 'No email' }}
-                                        <button type="button" class="btn btn-link btn-sm p-0 ms-1" onclick="navigator.clipboard.writeText('{{ $transaction->email }}')" title="Copy Email">
-                                            <i class="bi bi-clipboard"></i>
-                                        </button>
+                                        @if(!empty($transaction->email))
+                                            {{ $transaction->email }}
+                                            <button type="button" class="btn btn-link btn-sm p-0 ms-1" onclick="navigator.clipboard.writeText('{{ $transaction->email }}')" title="Copy Email">
+                                                <i class="bi bi-clipboard"></i>
+                                            </button>
+                                        @elseif(!empty($transaction->phone))
+                                            {{ $transaction->phone }}
+                                            <button type="button" class="btn btn-link btn-sm p-0 ms-1" onclick="navigator.clipboard.writeText('{{ $transaction->phone }}')" title="Copy Phone">
+                                                <i class="bi bi-clipboard"></i>
+                                            </button>
+                                        @else
+                                            No email or phone
+                                        @endif
                                     </div>
                                     @if(isset($transaction->usertag))
                                     <div class="user-usertag">
